@@ -3,6 +3,7 @@ const errorExceptionType = require('../constants/error-exception-type');
 const routes = require('../constants/routes');
 const { models } = require('../models');
 const { getAuthor } = require('./author.service');
+const { getPathFromRoot } = require('./category.service');
 
 const { ErrorException, Item } = models;
 
@@ -53,6 +54,7 @@ const getItem = async (id) => {
     .then(async(response) => {
       item = {
         author: await getAuthor(response.data.seller_id),
+        categories: await getPathFromRoot(response.data.category_id),
         item: new Item(response.data, true)
       };
       item.item.setDescription(await getItemDescription(id));
