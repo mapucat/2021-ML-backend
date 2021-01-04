@@ -7,16 +7,16 @@ const { Author, ErrorException } = models;
 
 /**
  * Función para obtener el autor dada la id del usuario
- * @param {*} userId la id del autor
+ * @param {*} id la id del autor
  * @returns un modelo del author a partir de la respuesta de la api
  */
-const getAuthor = async (userId) => {
+const getAuthor = async (id) => {
   'use strict';
-  if (userId === null || userId === undefined) {
-    throw new ErrorException(errorExceptionType.MISSING_PARAMETER, 'El parametro userId no ha sido enviado.');
+  if (id === null || id === undefined) {
+    throw new ErrorException(errorExceptionType.MISSING_PARAMETER, 'El parametro id del autor no ha sido enviado.');
   }
   let author = null;
-  await axios.get(`${routes.ML_API}/users/${userId}`)
+  await axios.get(`${routes.ML_API}/users/${id}`)
     .then((response) => author = new Author(response.data))
     .catch((error) => {
       throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error);

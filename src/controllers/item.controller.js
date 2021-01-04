@@ -4,7 +4,7 @@ const { services } = require('../services');
 
 const { ErrorResponse } = models;
 
-const { getAuthor } = services;
+const { getAuthor, getPathFromRoot } = services;
 
 /**
  * Función para obtener un item o producto
@@ -12,10 +12,10 @@ const { getAuthor } = services;
  * @param {*} res la respuesta que se enviará por parte del servicio
  */
 const getItem = async (req, res) => {
-  const userId = req.query.userId;
+  const categoryId = req.query.categoryId;
   try {
-    const author = await getAuthor(userId);
-    res.send(author);
+    const category = await getPathFromRoot(categoryId);
+    res.send(category);
   } catch(e) {
     if (e.type === errorExceptionType.MISSING_PARAMETER) {
       res.status(400).send(new ErrorResponse(400, req.url, e.message));
