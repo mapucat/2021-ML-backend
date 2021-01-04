@@ -20,7 +20,7 @@ const getPathFromRoot = async (id) => {
   await axios.get(`${routes.ML_API}/categories/${id}`)
     .then((response) => path = response.data.path_from_root.map(element => element.name))
     .catch((error) => {
-      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error);
+      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
     });
   return path;
 };

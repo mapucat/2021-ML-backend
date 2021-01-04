@@ -9,9 +9,10 @@ const ErrorException = class {
    *                 la constante error-exception-type.
    * @param {*} message Mensaje adicional al error.
    */
-  constructor(type, message) {
+  constructor(type, message, error) {
     this.type = type;
     this.message = message;
+    this.error = error;
   } 
 };
 

@@ -19,7 +19,7 @@ const getAuthor = async (id) => {
   await axios.get(`${routes.ML_API}/users/${id}`)
     .then((response) => author = new Author(response.data))
     .catch((error) => {
-      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error);
+      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
     });
   return author;
 };
