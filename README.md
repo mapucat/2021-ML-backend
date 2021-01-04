@@ -117,6 +117,7 @@ Una mirada a los archivos y directorios de nivel superior que verá en este proy
     ├── __test__/
     ├── node_modules/
     ├── src/
+    |   ├── constants/
     |   ├── controllers/
     |   ├── models/
     |   ├── routes/
@@ -133,13 +134,15 @@ Una mirada a los archivos y directorios de nivel superior que verá en este proy
 
 3. **`/src`**: Este directorio contiene todo el código relacionado con lo que se podrá solicitar al back-end. `src` es una convención para "source code".
 
-    1. **`/controllers`**: Guarda los controladores de la aplicación que servirán para orquestar las llamadas de los servicios y qué datos serán retornados al usuario.
+    1. **`/constants`**: Guarda las variables que no cambiarán su valor dentro del aplicativo.
 
-    2. **`/models`**: Guarda clases representen objetos de datos que se puedan usar para transferir datos en la aplicación.
+    2. **`/controllers`**: Guarda los controladores de la aplicación que servirán para orquestar las llamadas de los servicios y qué datos serán retornados al usuario.
 
-    3. **`/routes`**: Guarda las rutas que tendrá la aplicación, lo único que debe hacer es juntar las funciones de los controladores con las rutas esperadas.
+    3. **`/models`**: Guarda clases representen objetos de datos que se puedan usar para transferir datos en la aplicación.
 
-    4. **`/services`**: Guarda los servicios de la aplicación; debería cotener la mayor cantidad de lógica de negocio: Logica que encapsula los requerimientos del negodio, como llamadas a capas de acceso de datos o modelos así como la utilización de API's externos a la aplicación.
+    4. **`/routes`**: Guarda las rutas que tendrá la aplicación, lo único que debe hacer es juntar las funciones de los controladores con las rutas esperadas.
+
+    5. **`/services`**: Guarda los servicios de la aplicación; debería cotener la mayor cantidad de lógica de negocio: Logica que encapsula los requerimientos del negodio, como llamadas a capas de acceso de datos o modelos así como la utilización de API's externos a la aplicación.
 
     5. **`/utils`**: Guarda funciones y clases que pueden ser usadas de forma transversal en el aplicativo.
 
