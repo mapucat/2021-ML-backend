@@ -7,9 +7,9 @@ const { getAuthor } = require('./author.service');
 const { ErrorException, Item } = models;
 
 /**
- * Función para obtener productos según una búsqueda determinada
+ * Función para obtener items según una búsqueda determinada
  * @param {*} q string de búsqueda
- * @returns Lista de productos
+ * @returns Lista de items
  */
 const getItems = async (q, limit) => {
   'use strict';
@@ -38,6 +38,54 @@ const getItems = async (q, limit) => {
   return items;
 };
 
+/**
+ * Función para obtener un item según su id
+ * @param {*} id id del item
+ * @returns item encontrado
+ */
+const getItem = async (id) => {
+  'use strict';
+  if (id === null || id === undefined || id.length === 0) {
+    throw new ErrorException(errorExceptionType.MISSING_PARAMETER, 'El parametro id del item no ha sido enviado.');
+  }
+  let item = null;
+  await axios.get(`${routes.ML_API}/items/${id}`)
+    .then(async(response) => {
+      item = {
+        author: await getAuthor(response.data.seller_id),
+        item: new Item(response.data, true)
+      };
+      item.item.setDescription(await getItemDescription(id));
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
+    });
+  
+  return item;
+};
+
+/**
+ * Función para obtener la descripción de un item según su id
+ * @param {*} id id del item
+ * @returns descripción del item
+ */
+const getItemDescription = async (id) => {
+  'use strict';
+  if (id === null || id === undefined || id.length === 0) {
+    throw new ErrorException(errorExceptionType.MISSING_PARAMETER, 'El parametro id del item no ha sido enviado.');
+  }
+  let description = '';
+  await axios.get(`${routes.ML_API}/items/${id}/description`)
+    .then(async(response) => description = response.data.plain_text)
+    .catch((error) => {
+      throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
+    });
+  return description;
+};
+
 module.exports = {
+  getItem,
+  getItemDescription,
   getItems
 };

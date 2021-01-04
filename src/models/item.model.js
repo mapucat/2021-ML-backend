@@ -17,8 +17,8 @@ const Item = class {
       sold_quantity,
       shipping: { free_shipping },
       condition,
-      address: { city_name },
-      category_id }, hasDetails) {
+      seller_address: { city: { name: city_name } }
+    }, hasDetails) {
     this.id = id;
     this.title = title;
     this.price = {
@@ -28,9 +28,8 @@ const Item = class {
     this.picture = thumbnail;
     this.condition = condition;
     this.free_shipping = free_shipping;
-    this.sold_quantity = sold_quantity;
     this.city_name = city_name;
-    this.category_id = hasDetails ? category_id : undefined; 
+    this.sold_quantity = hasDetails ? sold_quantity : undefined;
   } 
 
   setDescription(description) {
