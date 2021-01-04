@@ -12,7 +12,6 @@ const { Author, ErrorException } = models;
  */
 const getAuthor = async (userId) => {
   'use strict';
-  console.log({userId});
   if (userId === null || userId === undefined) {
     throw new ErrorException(errorExceptionType.MISSING_PARAMETER, 'El parametro userId no ha sido enviado.');
   }
