@@ -4,6 +4,6 @@ const { controllers } = require('../controllers');
 
 const router = express.Router();
 
-router.get('/items', controllers.getItem);
+router.get('/items', controllers.getItemsList);
 
 module.exports = router;

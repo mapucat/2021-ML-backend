@@ -1,5 +1,5 @@
-const { getItem } = require('./item.controller');
+const { getItemsList } = require('./item.controller');
 
 module.exports.controllers = {
-  getItem
+  getItemsList
 };
