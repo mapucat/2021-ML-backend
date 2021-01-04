@@ -1,0 +1,29 @@
+{
+  "name": "ml-backend",
+  "version": "1.0.0",
+  "description": "Test práctico - backend",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alula96/ML-backend.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "REST"
+  ],
+  "author": "Maria Paula Rodríguez Escobar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alula96/ML-backend/issues"
+  },
+  "homepage": "https://github.com/Alula96/ML-backend#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
