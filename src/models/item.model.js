@@ -30,10 +30,6 @@ const Item = class {
     this.free_shipping = free_shipping;
     this.city_name = city_name;
     this.sold_quantity = hasDetails ? sold_quantity : undefined;
-  } 
-
-  setDescription(description) {
-    this.description = description;
   }
 };
 

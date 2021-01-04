@@ -2,8 +2,10 @@ const axios = require('axios');
 const errorExceptionType = require('../constants/error-exception-type');
 const routes = require('../constants/routes');
 const { models } = require('../models');
+
 const { getAuthor } = require('./author.service');
 const { getPathFromRoot } = require('./category.service');
+const { getCurrency } = require('./currency.service');
 
 const { ErrorException, Item } = models;
 
@@ -57,7 +59,9 @@ const getItem = async (id) => {
         categories: await getPathFromRoot(response.data.category_id),
         item: new Item(response.data, true)
       };
-      item.item.setDescription(await getItemDescription(id));
+      const currency = await getCurrency(response.data.currency_id);
+      item.item.price.decimals = currency.decimals;
+      item.item.description = await getItemDescription(id);
     })
     .catch((error) => {
       console.log(error);
