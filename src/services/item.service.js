@@ -64,7 +64,6 @@ const getItem = async (id) => {
       item.item.description = await getItemDescription(id);
     })
     .catch((error) => {
-      console.log(error);
       throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
     });
   

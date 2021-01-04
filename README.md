@@ -94,7 +94,7 @@ Para instalar el proyecto, debes seguir los siguientes pasos:
 
 Para ejecutar el proyecto, debes escribir en consola:
 
-    npm start
+    node src/server.js
 
 ---
 
