@@ -144,16 +144,14 @@ Una mirada a los archivos y directorios de nivel superior que verá en este proy
 
     5. **`/services`**: Guarda los servicios de la aplicación; debería cotener la mayor cantidad de lógica de negocio: Logica que encapsula los requerimientos del negodio, como llamadas a capas de acceso de datos o modelos así como la utilización de API's externos a la aplicación.
 
-    5. **`/utils`**: Guarda funciones y clases que pueden ser usadas de forma transversal en el aplicativo.
+    6. **`/utils`**: Guarda funciones y clases que pueden ser usadas de forma transversal en el aplicativo.
 
 4. **`.gitignore`**: Este archivo le dice a git para qué archivos no debe rastrear / no mantener un historial de versiones.
 
-5. **`angular.json`**: Los valores predeterminados de configuración de CLI para todos los proyectos en el espacio de trabajo, incluidas las opciones de configuración para compilar, servir y probar herramientas que utiliza la CLI, como [TSLint](https://palantir.github.io/tslint/), [Karma](https://karma-runner.github.io/), y [Protractor](http://www.protractortest.org/). Para más detalles, ver [Angular Workspace Configuration](https://angular.io/guide/workspace-config).
+5. **`package-lock.json`** (Ver `package.json` a continuación, primero). Este es un archivo generado automáticamente basado en las versiones exactas de sus dependencias npm que se instalaron para su proyecto. **(No cambiará este archivo directamente).**
 
-6. **`package-lock.json`** (Ver `package.json` a continuación, primero). Este es un archivo generado automáticamente basado en las versiones exactas de sus dependencias npm que se instalaron para su proyecto. **(No cambiará este archivo directamente).**
+6. **`package.json`**: Un archivo de manifiesto para proyectos de Node.js, que incluye cosas como metadatos (el nombre del proyecto, el autor, etc.). Este manifiesto es cómo npm sabe qué paquetes instalar para su proyecto.
 
-7. **`package.json`**: Un archivo de manifiesto para proyectos de Node.js, que incluye cosas como metadatos (el nombre del proyecto, el autor, etc.). Este manifiesto es cómo npm sabe qué paquetes instalar para su proyecto.
-
-8. **`README.md`**: Archivo de texto que contene información de referencia útil sobre el proyecto.
+7. **`README.md`**: Archivo de texto que contene información de referencia útil sobre el proyecto.
 
 ---

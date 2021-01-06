@@ -10,7 +10,7 @@ app.all('**', (req, res) => {
   res.status(404).send(new ErrorResponse(404, req.url));
 });
 
-app.listen(3000);
+app.listen(3001);
 
 
 module.exports = {
