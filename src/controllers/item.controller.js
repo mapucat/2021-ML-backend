@@ -24,9 +24,11 @@ const getItemsList = async (req, res) => {
   } catch(e) {
     if (e.type === errorExceptionType.MISSING_PARAMETER) {
       res.status(400).send(new ErrorResponse(400, req.url, e.message));
+    } else if (e.type === errorExceptionType.NO_DATA_FOUND) {
+      res.status(404).send(new ErrorResponse(404, req.url, e.message));
     } else {
       res.status(500).send(new ErrorResponse(500, req.url, e.error));
-    }    
+    }
   }
 };
 

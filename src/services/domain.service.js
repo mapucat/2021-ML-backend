@@ -21,10 +21,18 @@ const getDomain = async (q) => {
       q
     }
   })
-    .then((response) => domain = new Domain(response.data[0]))
+    .then((response) => {
+      if (!!response.data && response.data.length !== 0) {
+        domain = new Domain(response.data[0]);
+      }
+    })
     .catch((error) => {
       throw new ErrorException(errorExceptionType.UNKNOWN_ERROR, 'Ha ocurrido un error desconocido.', error.response.data);
     });
+
+  if (domain === null) {
+    throw new ErrorException(errorExceptionType.NO_DATA_FOUND, 'No se han encontrado resultados para la búsqueda ingresada');
+  }
   return domain;
 };
 
